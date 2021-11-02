@@ -293,7 +293,8 @@ export default class DeploymentConfigModal extends React.PureComponent {
                         component={ TextInput }
                         fieldError={ fieldError }
                         hint="Optional"
-                        label="Tenant ID"
+                        label="Tenant ID (Not Configurable)"
+                        value="staging"
                       />
                     </div>
                   </fieldset>
@@ -309,18 +310,8 @@ export default class DeploymentConfigModal extends React.PureComponent {
                         name="endpoint.url"
                         component={ TextInput }
                         fieldError={ fieldError }
-                        validate={ (value) => {
-                          this.externalErrorCodeCache = null;
-                          return validator.validateEndpointURL(
-                            value,
-                            form.setFieldError,
-                            this.isOnBeforeSubmit,
-                            onAuthDetection,
-                            (code) => { this.externalErrorCodeCache = code; }
-                          );
-                        } }
-                        label="REST Endpoint"
-                        hint="Should point to a running Camunda Platform REST API endpoint."
+                        label="REST Endpoint (Not Configurable)"
+                        value="http://bpm.dev.harmoneylabs.com/engine-rest"
                       />
 
                       {
